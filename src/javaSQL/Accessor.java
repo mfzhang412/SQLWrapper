@@ -4,14 +4,20 @@ import java.sql.*;
 
 public class Accessor {
 	   private final String DB_URL;
-	   
 	   private final String USERNAME;
 	   private final String PASSWORD;
-	   
+	   private String jdbcDriver;
 	   private Connection conn;
 	   private Statement stmt;
 	   
-	   private String jdbcDriver;
+	   public Accessor(String dbURL, String user, String pass, String jdbc) {
+		   DB_URL = dbURL;
+		   USERNAME = user;
+		   PASSWORD = pass;
+		   this.jdbcDriver = jdbc;
+		   this.conn = null;
+		   this.stmt = null;
+	   }
 	   
 	   public Accessor(String dbURL, String user, String pass) {
 		   DB_URL = dbURL;
